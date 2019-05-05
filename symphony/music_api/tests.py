@@ -1,24 +1,12 @@
 from django.test import TestCase
 # Create your tests here.
 from .models import TrackInformation
+from .models import ArtistInformation
 from rest_framework.test import APIClient
 from rest_framework import status
 from django.urls import reverse
-# Create your views here.
-
-
-class ViewTestCase(TestCase):
-    """Test suite for API views."""
-
-    def setUp(self):
-        """Setting up test variables"""
-        self.client = APIClient()
-        self.track_information_data = {'artistId': '1234', 'artistName': 'VdKotian'}
-        self.response = self.client.post(reverse('create'), self.track_information_data, format="json")
-
-    def test_trackinformation_create(self):
-        """This will check if the track information can be created"""
-        self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
+from datetime import datetime
+import pytz
 
 
 class ModelTestCase(TestCase):
@@ -28,11 +16,33 @@ class ModelTestCase(TestCase):
         """Define the test variables and other resources"""
         self.artistId = "1234"
         self.artistName = 'VdKotian'
-        self.trackinformation_obj = TrackInformation(artistName=self.artistName, artistId=self.artistId)
+        self.artist_information = ArtistInformation(artistName=self.artistName)
 
     def test_trackinfomation_create(self):
         """This will test if it can be   created or not"""
+        old_count = ArtistInformation.objects.count()
+        self.artist_information.save()
+        updated_count = ArtistInformation.objects.count()
+        self.assertNotEqual(old_count, updated_count)
+
+
+class TrackInformationTestCase(TestCase):
+    """This class has all the mthodes and functionality to Test"""
+
+    def setUp(self):
+
+        """Defining the variables and other resouces here"""
+        self.trackName = "Test Track"
+        self.country = "USA"
+        self.genreName = "Test Genre"
+        self.releaseDate = datetime.now(tz=pytz.timezone('Asia/Kolkata'))
+        self.artist_obj = ArtistInformation.objects.create(artistName="Test Artist")
+        self.track_info_obj = TrackInformation(trackName=self.trackName, artistId=self.artist_obj,
+                                               genreName=self.genreName, releaseDate=self.releaseDate,
+                                               country=self.country)
+
+    def test_artistinformation(self):
         old_count = TrackInformation.objects.count()
-        self.trackinformation_obj.save()
+        self.track_info_obj.save()
         updated_count = TrackInformation.objects.count()
         self.assertNotEqual(old_count, updated_count)

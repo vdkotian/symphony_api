@@ -44,7 +44,7 @@ class ArtistInformationView(APIView):
     """ This view is for handling operation for Artist Information. It will perform GET, POST, DELETE request
     for artist information."""
 
-    def get(self):
+    def get(self, pk=None):
         """Performs GET operation. Returns a Response with all artist information"""
         """This will handel all the GET request."""
         track_info = ArtistInformation.objects.all()
