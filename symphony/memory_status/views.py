@@ -10,15 +10,15 @@ from django.template import Template, RequestContext
 class Login(View):
 
     def get(self, request):
+        """This function render the html"""
         return render(request, 'base.html')
 
 
 class Status(View):
 
     def post(self, request):
-        print("Hello", request)
+        """This function is for handling POST request, and will login the server, get the details and render the output."""
         post_data = request.POST
-        print(post_data)
         with paramiko.SSHClient() as ssh:
             ssh.load_system_host_keys()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

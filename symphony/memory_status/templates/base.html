@@ -23,61 +23,58 @@
             </nav>
         </div>
     </div>
-    <span class="border"></span>
-    <div class="card-body">
-        <form id="sys_monitor_form">{% csrf_token %}
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-6 offset-3">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-terminal"></i> </span>
-                            </div>
-                            <input name="host" class="form-control" value="datlpdsnn01.pds.in.here.com"
-                                   placeholder="Host/Ip Address" type="text">
+    <form id="sys_monitor_form">{% csrf_token %}
+        <div class="form-group">
+            <div class="row mt-2">
+                <div class="col-sm-6 offset-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-terminal"></i> </span>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 offset-3">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
-                            </div>
-                            <input name="username" class="form-control" value="lcmsdev" placeholder="Username"
-                                   type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 offset-3">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-key"></i> </span>
-                            </div>
-                            <input name="password" class="form-control" value="Ch!c2g0@" placeholder="Password"
-                                   type="password">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 offset-3">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-cogs"></i> </span>
-                            </div>
-                            <input name=port"" class="form-control" value="22" placeholder="Port" type="number">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="offset-3 col-sm-2">
-                        <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
+                        <input name="host" class="form-control" value=""
+                               placeholder="Host/Ip Address" type="text">
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+            <div class="row mt-2">
+                <div class="col-sm-6 offset-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+                        </div>
+                        <input name="username" class="form-control" value="" placeholder="Username"
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-6 offset-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+                        </div>
+                        <input name="password" class="form-control" value="" placeholder="Password"
+                               type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-6 offset-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-cogs"></i> </span>
+                        </div>
+                        <input name=port"" class="form-control" value="22" placeholder="Port" type="number">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="offset-3 col-sm-2">
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
     <div class="col-sm-12">
         <table class="table">
 
